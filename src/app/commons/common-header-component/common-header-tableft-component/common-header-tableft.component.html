@@ -1,0 +1,42 @@
+<div class="common-header-tableft-component" [ngClass]="{'active': statusTabLeft}">
+    <div class="tableft-mask" (click)="onCloseTabLeftHandler()"></div>
+    <div class="tableft-wrapper">
+        <h2 class="tab-left-logo">
+            <a [routerLink]="['/']">Macbook</a>
+        </h2>
+
+        <ul class="header-list header-navigator">
+            <!-- <li>
+                <a [routerLink]="['/products']" (click)="onCloseTabLeftHandler()">Sản phẩm</a>
+            </li>
+            <li>
+                <a [routerLink]="['/carts']" (click)="onCloseTabLeftHandler()">Giỏ hàng</a>
+            </li>
+            <li>
+                <a [routerLink]="['/orders']" (click)="onCloseTabLeftHandler()">Hoá đơn</a>
+            </li>
+            <li>
+                <a [routerLink]="['/users']" (click)="onCloseTabLeftHandler()">Người dùng</a>
+            </li>
+            <li>
+                <a [routerLink]="['/roles']" (click)="onCloseTabLeftHandler()">Phân quyền</a>
+            </li> -->
+        </ul>
+
+        <!-- <ul class="header-list header-auth-navigator">
+            <li *ngIf="!user.id">
+                <a [routerLink]="['/auth']" (click)="onCloseTabLeftHandler()">
+                    <mat-icon aria-hidden="false" fontIcon="login"></mat-icon>
+                    <span>Đăng nhập</span>
+                </a>
+            </li>
+
+            <li *ngIf="user.id">
+                <a (click)="onSignOut()">
+                    <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
+                    <span>Đăng xuất</span>
+                </a>
+            </li>
+        </ul> -->
+    </div>
+</div>
