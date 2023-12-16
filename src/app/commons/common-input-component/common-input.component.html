@@ -1,0 +1,12 @@
+<div class="common-input-component">
+    <div class="form-group">
+        <label [for]="id">{{label}}</label>
+        <input
+            (blur)="onBlurHandler()"
+            [formControl]="formControl"
+            [type]="type"
+            class="form-control" [ngClass]="{'is-invalid': error}"
+            [id]="id"/>
+        <small *ngIf="error" class="form-text error-input text-muted">{{error.message}}</small>
+      </div>
+</div>

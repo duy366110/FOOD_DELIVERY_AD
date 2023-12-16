@@ -1,0 +1,116 @@
+.header-component {
+    background-color: transparent;
+    height: 50px;
+    padding: 15px;
+    .header-wrapper-container {
+        background-color: var(--first-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0px;
+        height: 50px;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 1000;
+
+        // LOGO
+        .header-logo {
+            font-size: 2rem;
+            margin-bottom: 0px;
+            a {
+                color: #ffffff;
+                letter-spacing: .3px;
+                text-decoration: none;
+            }
+        }
+
+        // NAVIGATOR
+        .header-list {
+            align-items: center;
+            gap: 10px;
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            &.header-navigator {
+                margin-right: 1.5rem;
+            }
+
+            li {
+                .header-auth-email {
+                    color: #ffffff;
+                    margin-bottom: 0px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 125px;
+                }
+                a {
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 1.5rem;
+                    letter-spacing: .3px;
+                    text-decoration: none;
+                    .mat-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+
+        // BUTTON TAB LEFT
+        .header-btn-tableft {
+            background-color: transparent;
+            border: unset;
+            height: 35px;
+            outline: unset;
+            padding: 0px;
+            position: relative;
+            width: 45px;
+            span {
+                background-color: #ffffff;
+                display: block;
+                height: 5px;
+                position: absolute;
+                transition: all .3s ease;
+                width: 100%;
+            }
+
+            &::before, &::after {
+                background-color: #ffffff;
+                content: "";
+                display: inline-block;
+                left: 0px;
+                height: 5px;
+                position: absolute;
+                transition: all .3s ease;
+                top: 0px;
+                width: 100%;
+            }
+
+            &::before {
+                bottom: 0px;
+                top: unset;
+            }
+
+            &.active span {
+                opacity: 0;
+            }
+
+            &.active::before {
+                top: 50%;
+                transform: translateY(-50%) rotate(37deg);
+            }
+
+            &.active::after {
+                top: 50%;
+                transform: translateY(-50%) rotate(-37deg);
+            }
+        }
+    }
+}

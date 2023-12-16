@@ -1,0 +1,75 @@
+.common-header-tableft-component {
+    background-color: transparent;
+    left: -100%;
+    height: 100%;
+    position: fixed;
+    transition: all .3s ease;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
+    &.active {
+        left: 0%;
+    }
+    .tableft-mask {
+        background-color: transparent;
+        left: 0px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: -1;
+    }
+    .tableft-wrapper {
+        background-color: var(--first-color);
+        left: 0px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        width: 280px;
+        z-index: 1;
+        a {
+            color: #ffffff;
+            padding: 1rem 1.5rem;
+        }
+        .tab-left-logo {
+            border-bottom: 3px solid #ffffff;
+            font-size: 2rem;
+            margin-bottom: 0px;
+            a {
+                display: flex;
+                color: #ffffff;
+                letter-spacing: .3px;
+                text-decoration: none;
+            }
+        }
+        .header-list {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 15px;
+            list-style-type: none;
+            padding: 0px;
+
+            li {
+                width: 100%;
+                a {
+                    color: #ffffff;
+                    border-bottom: 1px solid #ffffff;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 1.7rem;
+                    letter-spacing: .3px;
+                    text-decoration: none;
+                    width: 100%;
+                    .mat-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
