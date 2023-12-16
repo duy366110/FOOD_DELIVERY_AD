@@ -1,0 +1,13 @@
+<div class="dashboard-role-new-component">
+    <form [formGroup]="roleForm" (submit)="onSubmitHandler($event)">
+        <div class="row">
+            <div class="col-6">
+                <app-common-input
+                    [formControl]="name"></app-common-input>
+            </div>
+            <div class="col-12">
+                <app-common-button [type]="'submit'" [title]="'Create role'"></app-common-button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,8 @@
+<div class="common-breadcrumb-component">
+    <ul *ngIf="pathNames.length > 0">
+        <li *ngFor="let pathNames of pathNames; let last = last">
+            <a *ngIf="!last" [routerLink]="['/'+pathNames]">{{pathNames}}</a>
+            <span *ngIf="last">{{pathNames}}</span>
+        </li>
+    </ul>
+</div>

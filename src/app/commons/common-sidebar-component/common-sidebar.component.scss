@@ -1,0 +1,33 @@
+.common-sidebar-component {
+    min-height: 250px;
+    position: relative;
+    width: 100%;
+    .sidebar-wrapper {
+        border-right: 3px solid var(--first-color);
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        .sidebar-navigator {
+            background-color: #f9f9f9;
+            list-style-type: none;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            li {
+                &:not(:last-child) {
+                    border-bottom: 1px solid #e5e5e5;
+                }
+                a {
+                    color: var(--first-color);
+                    display: flex;
+                    font-size: 15px;
+                    font-weight: 600;
+                    letter-spacing: .3px;
+                    padding: 10px 15px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

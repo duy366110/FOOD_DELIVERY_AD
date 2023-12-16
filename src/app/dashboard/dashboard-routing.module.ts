@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: "",
         component: DashboardMainComponent
+      },
+      {
+        path: "role",
+        loadChildren: (() => import("../dashboard/dashboard-role/dashboard-role.module").then((m) => m.DashboardRoleModule))
       }
     ]
   }
