@@ -1,0 +1,15 @@
+.common-loader-component {
+    background-color: #e1e1e170;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1200;
+    &.active {
+        display: flex;
+    }
+}
