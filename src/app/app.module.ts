@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { loaderReducer } from './store/loader-reducer';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      loader: loaderReducer
+    }),
     BrowserAnimationsModule,
     HttpClientModule
   ],

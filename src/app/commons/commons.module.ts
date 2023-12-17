@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { CommonsRoutingModule } from './commons-routing.module';
 import { CommonInputComponent } from './common-input-component/common-input.component';
@@ -11,6 +12,9 @@ import { CommonHeaderTableftComponent } from './common-header-component/common-h
 import { CommonSidebarComponent } from './common-sidebar-component/common-sidebar.component';
 import { CommonBreadcrumbComponent } from './common-breadcrumb-component/common-breadcrumb.component';
 import { CommonButtonComponent } from './common-button-component/common-button.component';
+import { CommonFooterComponent } from './common-footer-component/common-footer.component';
+import { CommonLoaderComponent } from './common-loader-component/common-loader.component';
+import { CommonMessageComponent } from './common-message-component/common-message.component';
 
 
 @NgModule({
@@ -20,20 +24,27 @@ import { CommonButtonComponent } from './common-button-component/common-button.c
     CommonHeaderTableftComponent,
     CommonSidebarComponent,
     CommonBreadcrumbComponent,
-    CommonButtonComponent
+    CommonButtonComponent,
+    CommonFooterComponent,
+    CommonLoaderComponent,
+    CommonMessageComponent,
   ],
   imports: [
     CommonModule,
     CommonsRoutingModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     CommonInputComponent,
     CommonHeaderComponent,
     CommonSidebarComponent,
     CommonBreadcrumbComponent,
-    CommonButtonComponent
+    CommonButtonComponent,
+    CommonFooterComponent,
+    CommonLoaderComponent,
+    CommonMessageComponent,
   ]
 })
 export class CommonsModule { }
