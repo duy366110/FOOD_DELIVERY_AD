@@ -15,6 +15,8 @@ import { CommonButtonComponent } from './common-button-component/common-button.c
 import { CommonFooterComponent } from './common-footer-component/common-footer.component';
 import { CommonLoaderComponent } from './common-loader-component/common-loader.component';
 import { CommonMessageComponent } from './common-message-component/common-message.component';
+import { CommonPaginationComponent } from './common-pagination-component/common-pagination.component';
+import { CommonTableComponent } from './common-table-component/common-table.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { CommonMessageComponent } from './common-message-component/common-messag
     CommonFooterComponent,
     CommonLoaderComponent,
     CommonMessageComponent,
+    CommonPaginationComponent,
+    CommonTableComponent
   ],
   imports: [
     CommonModule,
@@ -45,6 +49,8 @@ import { CommonMessageComponent } from './common-message-component/common-messag
     CommonFooterComponent,
     CommonLoaderComponent,
     CommonMessageComponent,
+    CommonPaginationComponent,
+    CommonTableComponent
   ]
 })
 export class CommonsModule { }

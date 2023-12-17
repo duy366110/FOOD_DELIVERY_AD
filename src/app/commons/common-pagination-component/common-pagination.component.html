@@ -1,0 +1,9 @@
+<div class="common-pagination-component">
+    <div *ngIf="statusRenderPagination" class="pagination-wrapper">
+        <ul class="pagination-items">
+            <li *ngFor="let item of paginationList">
+                <button (click)="onChangeCurrentPage(item)">{{item + 1}}</button>
+            </li>
+        </ul>
+    </div>
+</div>

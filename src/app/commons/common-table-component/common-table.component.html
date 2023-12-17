@@ -1,0 +1,38 @@
+<div class="common-table-component">
+    <div class="table-wrapper">
+
+        <!-- ROLE -->
+        <table class="table"  *ngIf="type == 'Role'">
+            <thead>
+                <tr>
+                    <th *ngFor="let head of thead">{{head}}</th>
+                    <th class="th-255">Chức năng</th>
+                </tr>
+            </thead>
+
+            <tbody *ngIf="tbody.length > 0">
+                <tr *ngFor="let elm of tbody">
+                    <td>{{elm.id}}</td>
+                    <td>{{elm.name}}</td>
+                    <td>
+                        <button
+                            (click)="onDeleteHandler(elm.id)"
+                            class="mr-2"
+                            mat-button
+                            mat-raised-button
+                            color="warn">Delete</button>
+
+                        <button
+                            (click)="onUpdateHandler(elm.id)"
+                            mat-button
+                            mat-raised-button
+                            color="primary">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p  *ngIf="tbody.length <= 0" class="table-blank">Nội dung trống</p>
+
+    </div>
+</div>

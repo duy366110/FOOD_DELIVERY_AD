@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardRoleComponent } from './dashboard-role.component';
 import { DashboardRoleMainComponent } from './dashboard-role-main/dashboard-role-main.component';
 import { DashboardRoleNewComponent } from './dashboard-role-new/dashboard-role-new.component';
+import { ResolveRoleAmountService } from 'src/app/services/resolve-amount/resolve-role-amount.service';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        resolve: {amount: ResolveRoleAmountService},
         component: DashboardRoleMainComponent
       },
       {

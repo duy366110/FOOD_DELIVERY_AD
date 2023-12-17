@@ -21,10 +21,7 @@ export class CommonHttpService {
           .get(url)
           .pipe(
             map((response: any) => {
-              setTimeout(() => {
-                this.store.dispatch(toggleLoader());
-              }, 4500)
-
+              this.store.dispatch(toggleLoader());
               return response;
             }),
             catchError((errorRes: any) => {
