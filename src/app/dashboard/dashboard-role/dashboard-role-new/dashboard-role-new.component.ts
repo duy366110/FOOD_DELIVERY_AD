@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 import { ValidatorService } from 'src/app/services/service-validator/validator.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard-role-new',
@@ -13,10 +15,12 @@ export class DashboardRoleNewComponent implements OnInit, OnDestroy {
   name: FormControl = new FormControl("", [this.serviceValidator.require()]);
 
   submit: boolean = false;
+  url: string = `${environment.api.url}role/new`;
 
   constructor(
     public fb: FormBuilder,
-    private serviceValidator: ValidatorService
+    public serviceValidator: ValidatorService,
+    public serviceHttp: CommonHttpService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +39,14 @@ export class DashboardRoleNewComponent implements OnInit, OnDestroy {
     if(this.roleForm.status === "VALID") {
       this.submit = false;
       console.log(this.roleForm.value);
+      this.serviceHttp.post(this.url, this.roleForm.value)
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+        },
+        (error: any) => {
+          console.log(error);
+        })
 
     }
   }

@@ -9,6 +9,7 @@ import { DashboardRoleEditComponent } from './dashboard-role-edit/dashboard-role
 import { CommonsModule } from 'src/app/commons/commons.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidatorService } from 'src/app/services/service-validator/validator.service';
+import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ValidatorService } from 'src/app/services/service-validator/validator.s
     ReactiveFormsModule
   ],
   providers: [
-    ValidatorService
+    ValidatorService,
+    CommonHttpService
   ]
 })
 export class DashboardRoleModule { }
