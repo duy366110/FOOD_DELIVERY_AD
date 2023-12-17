@@ -1,5 +1,5 @@
 export const environment = {
     api: {
-        url: "http://localhost:8080/v1/api/admin/"
+        url: "https://food-delivery-53se.onrender.com/v1/api/admin/"
     }
 };

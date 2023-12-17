@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { ValidatorService } from 'src/app/services/service-validator/validator.service';
 
 @Component({
   selector: 'app-dashboard-role-new',
@@ -9,10 +10,13 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class DashboardRoleNewComponent implements OnInit, OnDestroy {
 
   roleForm: FormGroup = new FormGroup({});
-  name: FormControl = new FormControl("", []);
+  name: FormControl = new FormControl("", [this.serviceValidator.require()]);
+
+  submit: boolean = false;
 
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private serviceValidator: ValidatorService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +31,12 @@ export class DashboardRoleNewComponent implements OnInit, OnDestroy {
 
   onSubmitHandler(event: any): void {
     event.preventDefault();
-    console.log("Admin create role");
+    this.submit = true;
+    if(this.roleForm.status === "VALID") {
+      this.submit = false;
+      console.log(this.roleForm.value);
+
+    }
   }
 
   ngOnDestroy(): void {

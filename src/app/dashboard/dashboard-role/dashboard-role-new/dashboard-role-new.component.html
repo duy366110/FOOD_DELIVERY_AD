@@ -3,7 +3,12 @@
         <div class="row">
             <div class="col-6">
                 <app-common-input
-                    [formControl]="name"></app-common-input>
+                    ngDefaultControl
+                    [formControl]="name"
+                    [label]="'Role name'"
+                    [id]="'name-role'"
+                    [submit]="submit"
+                    [type]="'text'"></app-common-input>
             </div>
             <div class="col-12">
                 <app-common-button [type]="'submit'" [title]="'Create role'"></app-common-button>

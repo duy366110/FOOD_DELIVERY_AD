@@ -8,6 +8,7 @@ import { DashboardRoleNewComponent } from './dashboard-role-new/dashboard-role-n
 import { DashboardRoleEditComponent } from './dashboard-role-edit/dashboard-role-edit.component';
 import { CommonsModule } from 'src/app/commons/commons.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ValidatorService } from 'src/app/services/service-validator/validator.service';
 
 
 @NgModule({
@@ -22,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardRoleRoutingModule,
     CommonsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    ValidatorService
   ]
 })
 export class DashboardRoleModule { }
