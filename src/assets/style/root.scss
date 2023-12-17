@@ -1,5 +1,6 @@
 :root {
     --first-color: #3b3b3b;
+    --danger-color: #dc3545;
 }
 
 html, body {
@@ -11,4 +12,9 @@ html, body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* FORM */
+.message-input {
+    color: var(--danger-color)!important;
 }
