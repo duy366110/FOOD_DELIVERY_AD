@@ -1,0 +1,25 @@
+.common-pagination-component {
+    .pagination-wrapper {
+        background-color: #fbfbfb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        padding: 10px;
+        .pagination-items {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            gap: 10px;
+            margin: 0px;
+            padding: 0px;
+            li {
+                button {
+                    border: unset;
+                    outline: unset;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}
