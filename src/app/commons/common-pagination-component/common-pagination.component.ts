@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-// import {
-//   updateCurrentRolePage,
-//   updateCurrentUserPage,
-//   updateCurrentProductPage,
-//   updateCurrentCartPage,
-//   updateCurrentOrderPage
-// } from 'src/app/store/store-pagination/store-pagination-action';
+import {
+  updateCurrentRolePage,
+} from 'src/app/store/store-pagination/store-pagination-action';
 
 
 @Component({
@@ -45,28 +41,12 @@ export class CommonPaginationComponent implements OnInit {
   }
 
   onChangeCurrentPage(page: number) {
-    // switch(this.kind) {
-    //   case "cart":
-    //     this.store.dispatch(updateCurrentCartPage({page, section: this.section}));
-    //     break
-
-    //   case "order":
-    //       this.store.dispatch(updateCurrentOrderPage({page, section: this.section}));
-    //       break
-      
-    //   case "user":
-    //     this.store.dispatch(updateCurrentUserPage({page, section: this.section}));
-    //     break
-
-    //   case "product":
-    //     this.store.dispatch(updateCurrentProductPage({page, section: this.section}));
-    //     break
-
-    //   case "role":
-    //   default:
-    //     this.store.dispatch(updateCurrentRolePage({page, section: this.section}));
-    //     break
-    // }
+    switch(this.kind) {
+      case "role":
+      default:
+        this.store.dispatch(updateCurrentRolePage({page, section: this.section}));
+        break
+    }
   }
 
 }

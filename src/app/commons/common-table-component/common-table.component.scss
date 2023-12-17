@@ -1,0 +1,50 @@
+.common-table-component {
+    overflow: hidden;
+    width: 100%;
+    .table-wrapper {
+        overflow-x: auto;
+        .table {
+            thead {
+                tr {
+                    th {
+                        &.th-255 {
+                            width: 255px;
+                        }
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        &.td-165 {
+                            width: 165px;
+                        }
+                        &.td-product-name {
+                            margin-bottom: 0px;
+                            width: 290px;
+                        }
+                        img {
+                            margin-bottom: 1.5rem;
+                            width: 85px;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                & {
+                    width: calc(100% + 250px);
+                }
+            }
+        }
+        .table-blank {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: .3px;
+            margin-top: 2.5rem;
+            text-align: center;
+            text-transform: capitalize;
+            width: 100%;
+        }
+    }
+}

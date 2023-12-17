@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
-import { loadInitRolePagination } from 'src/app/store/store-pagination/store-pagination-action';
+import { loadInitRolePagination, updateStatusPage } from 'src/app/store/store-pagination/store-pagination-action';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,10 +13,12 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardRoleMainComponent implements OnInit, OnDestroy {
 
-  url: string = `${environment.api.url}${environment.api.role.root}`;
   dataSub: Subscription = new Subscription();
   storeSub: Subscription = new Subscription();
   serviceRoleSub: Subscription = new Subscription();
+
+  thead: Array<string> = ['STT', "Tên"];
+  tbody: Array<any> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,25 +38,34 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
       let { role } = pagination;
 
       if(role.totalAmount) {
+        let url: string = `${environment.api.url}${environment.api.role.root}`;
         let start = (role.currentPage * role.totalItemInPage);
-        this.url = `${this.url}/${start}/${role.totalItemInPage}`;
+        url = `${url}/${start}/${role.totalItemInPage}`;
 
-        this.serviceRoleSub = this.http.get(this.url).subscribe((res: any) => {
-          // let { status, message, roles } = res;
-          console.log(res);
-  
-          // if(status) {
-          //   this.tbody = roles;
-          // }
+        this.serviceRoleSub = this.http.get(url).subscribe((res: any) => {
+          let { status, message, roles } = res;
+
+          if(status) {
+            this.tbody = roles;
+          }
         })
       }
 
     })
   }
 
+  onDeleteRole(event: any) {
+
+  }
+
+  onUpdateRole(event: any) {
+
+  }
+
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
     this.storeSub.unsubscribe();
     this.serviceRoleSub.unsubscribe();
+    this.store.dispatch(updateStatusPage({kind: "role"}));
   }
 }
