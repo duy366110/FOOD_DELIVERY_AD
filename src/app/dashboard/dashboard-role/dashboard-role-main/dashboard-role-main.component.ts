@@ -16,6 +16,7 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   dataSub: Subscription = new Subscription();
   storeSub: Subscription = new Subscription();
   serviceRoleSub: Subscription = new Subscription();
+  serviceDeleteRoleSub: Subscription = new Subscription();
 
   thead: Array<string> = ['STT', "Tên"];
   tbody: Array<any> = [];
@@ -55,17 +56,25 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   }
 
   onDeleteRole(event: any) {
-
+    console.log(event);
+    let url: string = `${environment.api.url}${environment.api.role.delete}`;
+    this.serviceDeleteRoleSub = this.http.post(url, {role: event}).subscribe((res: any) => {
+      let {status, message} = res;
+      if(status) {
+        window.location.reload();
+      }
+    })
   }
 
   onUpdateRole(event: any) {
-
+    console.log(event);
   }
 
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
     this.storeSub.unsubscribe();
     this.serviceRoleSub.unsubscribe();
+    this.serviceDeleteRoleSub.unsubscribe();
     this.store.dispatch(updateStatusPage({kind: "role"}));
   }
 }
