@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
@@ -22,6 +22,7 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   tbody: Array<any> = [];
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private store: Store<{pagination: any}>,
     private http: CommonHttpService
@@ -67,7 +68,7 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   }
 
   onUpdateRole(event: any) {
-    console.log(event);
+    this.router.navigate(['/role/edit', event]);
   }
 
   ngOnDestroy(): void {
