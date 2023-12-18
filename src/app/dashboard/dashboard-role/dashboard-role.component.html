@@ -1,5 +1,5 @@
 <div class="dashboard-role-component">
-    <div class="mb-5">
+    <div class="mb-5" *ngIf="hideBtnEdit">
         <app-common-button title="New role" (btnClick)="onNewRoleHandler()"></app-common-button>
     </div>
     <router-outlet></router-outlet>

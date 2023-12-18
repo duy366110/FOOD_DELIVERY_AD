@@ -15,6 +15,7 @@ export class DashboardRoleNewComponent implements OnInit, OnDestroy {
 
   roleForm: FormGroup = new FormGroup({});
   name: FormControl = new FormControl("", [this.serviceValidator.require()]);
+  nameBtnSubmit: string = "Create role";
 
   submit: boolean = false;
   url: string = `${environment.api.url}role/new`;
