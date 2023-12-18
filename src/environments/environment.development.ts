@@ -4,6 +4,7 @@ export const environment = {
         role: {
             root: "role",
             new: 'role/new',
+            delete: "role/delete",
             amount: "role/amount"
         }
     }

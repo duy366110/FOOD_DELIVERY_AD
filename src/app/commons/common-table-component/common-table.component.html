@@ -2,7 +2,7 @@
     <div class="table-wrapper">
 
         <!-- ROLE -->
-        <table class="table"  *ngIf="type == 'Role'">
+        <table class="table"  *ngIf="type == 'Role' && tbody.length > 0">
             <thead>
                 <tr>
                     <th *ngFor="let head of thead">{{head}}</th>
@@ -10,20 +10,20 @@
                 </tr>
             </thead>
 
-            <tbody *ngIf="tbody.length > 0">
+            <tbody>
                 <tr *ngFor="let elm of tbody">
                     <td>{{elm.id}}</td>
                     <td>{{elm.name}}</td>
                     <td>
                         <button
-                            (click)="onDeleteHandler(elm.id)"
+                            (click)="onDeleteHandler(elm._id)"
                             class="mr-2"
                             mat-button
                             mat-raised-button
                             color="warn">Delete</button>
 
                         <button
-                            (click)="onUpdateHandler(elm.id)"
+                            (click)="onUpdateHandler(elm._id)"
                             mat-button
                             mat-raised-button
                             color="primary">Update</button>
@@ -31,8 +31,7 @@
                 </tr>
             </tbody>
         </table>
-        
-        <p  *ngIf="tbody.length <= 0" class="table-blank">Nội dung trống</p>
 
+        <p  *ngIf="tbody.length <= 0" class="table-blank">Nội dung trống</p>
     </div>
 </div>
