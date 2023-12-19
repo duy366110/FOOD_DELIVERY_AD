@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { CommonsRoutingModule } from './commons-routing.module';
@@ -17,6 +18,7 @@ import { CommonLoaderComponent } from './common-loader-component/common-loader.c
 import { CommonMessageComponent } from './common-message-component/common-message.component';
 import { CommonPaginationComponent } from './common-pagination-component/common-pagination.component';
 import { CommonTableComponent } from './common-table-component/common-table.component';
+import { CommonSelectComponent } from './common-select-component/common-select-component.component';
 
 
 @NgModule({
@@ -31,13 +33,15 @@ import { CommonTableComponent } from './common-table-component/common-table.comp
     CommonLoaderComponent,
     CommonMessageComponent,
     CommonPaginationComponent,
-    CommonTableComponent
+    CommonTableComponent,
+    CommonSelectComponent
   ],
   imports: [
     CommonModule,
     CommonsRoutingModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatSelectModule,
     MatProgressSpinnerModule,
   ],
   exports: [
@@ -50,7 +54,8 @@ import { CommonTableComponent } from './common-table-component/common-table.comp
     CommonLoaderComponent,
     CommonMessageComponent,
     CommonPaginationComponent,
-    CommonTableComponent
+    CommonTableComponent,
+    CommonSelectComponent
   ]
 })
 export class CommonsModule { }

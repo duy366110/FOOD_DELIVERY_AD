@@ -1,0 +1,6 @@
+<div class="dashboard-user-component">
+    <div class="mb-5" *ngIf="hideBtnEdit">
+        <app-common-button title="New user" (btnClick)="onNewUserHandler()"></app-common-button>
+    </div>
+    <router-outlet></router-outlet>
+</div>
