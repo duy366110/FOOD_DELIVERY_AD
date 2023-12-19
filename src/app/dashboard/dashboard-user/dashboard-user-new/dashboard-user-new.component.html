@@ -1,1 +1,57 @@
-<p>dashboard-user-new works!</p>
+<form [formGroup]="userForm" (submit)="onSubmitHandler($event)">
+    <div class="row">
+        <div class="col-6">
+            <app-common-input
+                ngDefaultControl
+                [formControl]="fullName"
+                [label]="'User full name'"
+                [id]="'user-fullname'"
+                [submit]="submit"
+                [type]="'text'"></app-common-input>
+        </div>
+
+        <div class="col-6">
+            <app-common-input
+                ngDefaultControl
+                [formControl]="email"
+                [label]="'E-mail'"
+                [id]="'user-email'"
+                [submit]="submit"
+                [type]="'email'"></app-common-input>
+        </div>
+
+        <div class="col-6">
+            <app-common-input
+                ngDefaultControl
+                [formControl]="password"
+                [label]="'Password'"
+                [id]="'user-password'"
+                [submit]="submit"
+                [type]="'password'"></app-common-input>
+        </div>
+
+        <div class="col-6">
+            <app-common-input
+                ngDefaultControl
+                [formControl]="phone"
+                [label]="'Phone number'"
+                [id]="'user-phone'"
+                [submit]="submit"
+                [type]="'phone'"></app-common-input>
+        </div>
+
+        <div class="col-6">
+            <app-common-input
+                ngDefaultControl
+                [formControl]="address"
+                [label]="'User address'"
+                [id]="'user-address'"
+                [submit]="submit"
+                [type]="'text'"></app-common-input>
+        </div>
+
+        <div class="col-12">
+            <app-common-button [type]="'submit'" [title]="nameBtnSubmit"></app-common-button>
+        </div>
+    </div>
+</form>
