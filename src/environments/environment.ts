@@ -6,6 +6,7 @@ export const environment = {
             new: 'role/new',
             update: 'role/update',
             delete: "role/delete",
+            all: "role/all",
             amount: "role/amount"
         },
         user: {

@@ -4,6 +4,7 @@ import { DashboardUserComponent } from './dashboard-user.component';
 import { DashboardUserMainComponent } from './dashboard-user-main/dashboard-user-main.component';
 import { DashboardUserNewComponent } from './dashboard-user-new/dashboard-user-new.component';
 import { DashboardUserEditComponent } from './dashboard-user-edit/dashboard-user-edit.component';
+import { ResolveAllRoleService } from 'src/app/services/resolve-all/resolve-all-role.service';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       },
       {
         path: "new",
+        resolve: {roles: ResolveAllRoleService},
         component: DashboardUserNewComponent
       },
       {
