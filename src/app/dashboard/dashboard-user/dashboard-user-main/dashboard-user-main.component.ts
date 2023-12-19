@@ -16,8 +16,9 @@ export class DashboardUserMainComponent implements OnInit, OnDestroy {
   dataSub: Subscription = new Subscription();
   storeSub: Subscription = new Subscription();
   serviceUserSub: Subscription = new Subscription();
+  serviceDeleteUserSub: Subscription = new Subscription();
 
-  thead: Array<string> = ['STT', "Họ và tên", "E-mail"];
+  thead: Array<string> = ['STT', "Họ và tên", "E-mail", "Quyền tài khoản"];
   tbody: Array<any> = [];
 
   constructor(
@@ -44,11 +45,7 @@ export class DashboardUserMainComponent implements OnInit, OnDestroy {
 
         this.serviceUserSub = this.http.get(url).subscribe((res: any) => {
           let { status, message, users } = res;
-
-          console.log(users);
-
           if(status) {
-            console.log(users);
             this.tbody = users;
           }
         })
@@ -58,14 +55,14 @@ export class DashboardUserMainComponent implements OnInit, OnDestroy {
   }
 
   onDeleteRole(event: any) {
-    // console.log(event);
-    // let url: string = `${environment.api.url}${environment.api.role.delete}`;
-    // this.serviceDeleteRoleSub = this.http.post(url, {role: event}).subscribe((res: any) => {
-    //   let {status, message} = res;
-    //   if(status) {
-    //     window.location.reload();
-    //   }
-    // })
+    let url: string = `${environment.api.url}${environment.api.user.delete}`;
+    this.serviceDeleteUserSub = this.http.post(url, {user: event}).subscribe((res: any) => {
+      let {status, message} = res;
+      
+      if(status) {
+        window.location.reload();
+      }
+    })
   }
 
   onUpdateRole(event: any) {
@@ -75,6 +72,7 @@ export class DashboardUserMainComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
     this.storeSub.unsubscribe();
+    this.serviceDeleteUserSub.unsubscribe();
     this.store.dispatch(updateStatusPage({kind: "user"}));
   }
 }
