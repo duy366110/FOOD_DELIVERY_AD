@@ -9,6 +9,7 @@ import { DashboardUserMainComponent } from './dashboard-user-main/dashboard-user
 import { DashboardUserNewComponent } from './dashboard-user-new/dashboard-user-new.component';
 import { DashboardUserEditComponent } from './dashboard-user-edit/dashboard-user-edit.component';
 import { ValidatorService } from 'src/app/services/service-validator/validator.service';
+import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ValidatorService } from 'src/app/services/service-validator/validator.s
     ReactiveFormsModule
   ],
   providers: [
-    ValidatorService
+    ValidatorService,
+    CommonHttpService
   ]
 })
 export class DashboardUserModule { }
