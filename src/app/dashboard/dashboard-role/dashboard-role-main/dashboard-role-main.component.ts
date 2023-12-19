@@ -18,7 +18,7 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   serviceRoleSub: Subscription = new Subscription();
   serviceDeleteRoleSub: Subscription = new Subscription();
 
-  thead: Array<string> = ['STT', "Tên"];
+  thead: Array<string> = ['STT', "Tên", "Số tài khoản"];
   tbody: Array<any> = [];
 
   constructor(

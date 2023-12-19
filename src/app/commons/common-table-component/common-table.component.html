@@ -11,9 +11,10 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let elm of tbody">
-                    <td>{{elm.id}}</td>
+                <tr *ngFor="let elm of tbody; index as i">
+                    <td>{{ i }}</td>
                     <td>{{elm.name}}</td>
+                    <td>{{elm.users.length}}</td>
                     <td>
                         <button
                             (click)="onDeleteHandler(elm._id)"
@@ -46,6 +47,7 @@
                     <td>{{i}}</td>
                     <td>{{elm.fullName}}</td>
                     <td>{{elm.email}}</td>
+                    <td>{{elm.role.name}}</td>
                     <td>
                         <button
                             (click)="onDeleteHandler(elm._id)"

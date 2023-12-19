@@ -21,7 +21,7 @@ const initialState = {
     },
     user: {
         totalAmount: 0,
-        totalItemInPage: 1,
+        totalItemInPage: 15,
         totalPage: 0,
         currentPage: 0,
         status: false
