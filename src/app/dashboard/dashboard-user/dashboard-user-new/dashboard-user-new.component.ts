@@ -23,6 +23,7 @@ export class DashboardUserNewComponent implements OnInit, OnDestroy {
 
   nameBtnSubmit: string = "Create user";
   submit: boolean = false;
+  isPassword: boolean = true;
   roles: Array<any> = [];
 
   url: string = `${environment.api.url}${environment.api.user.new}`;
@@ -70,7 +71,6 @@ export class DashboardUserNewComponent implements OnInit, OnDestroy {
     this.submit = true;
     if(this.userForm.status === "VALID") {
       this.submit = false;
-      console.log(this.userForm.value);
 
       this.serviceHttpSub = this.serviceHttp.post(this.url, this.userForm.value)
       .subscribe(

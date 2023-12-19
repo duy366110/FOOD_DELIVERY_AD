@@ -6,6 +6,7 @@ import { DashboardUserNewComponent } from './dashboard-user-new/dashboard-user-n
 import { DashboardUserEditComponent } from './dashboard-user-edit/dashboard-user-edit.component';
 import { ResolveAllRoleService } from 'src/app/services/resolve-all/resolve-all-role.service';
 import { ResolveUserAmountService } from 'src/app/services/resolve-amount/resolve-user-amount.service';
+import { ResolveIdUserService } from 'src/app/services/resolve-id/resolve-id-user.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       },
       {
         path: "edit/:id",
+        resolve: {
+          user: ResolveIdUserService,
+          roles: ResolveAllRoleService
+        },
         component: DashboardUserEditComponent
       }
     ]

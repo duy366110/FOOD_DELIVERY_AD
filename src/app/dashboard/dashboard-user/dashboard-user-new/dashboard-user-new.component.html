@@ -20,7 +20,7 @@
                 [type]="'email'"></app-common-input>
         </div>
 
-        <div class="col-6">
+        <div *ngIf="isPassword" class="col-6">
             <app-common-input
                 ngDefaultControl
                 [formControl]="password"
