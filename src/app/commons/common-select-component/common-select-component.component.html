@@ -1,6 +1,6 @@
 <div class="common-select-component">
     <mat-form-field>
-        <mat-label>Favorite food</mat-label>
+        <mat-label>{{ label }}</mat-label>
         <mat-select
             [formControl]="select">
             <mat-option *ngFor="let option of options" [value]="option.id">{{option.value}}</mat-option>

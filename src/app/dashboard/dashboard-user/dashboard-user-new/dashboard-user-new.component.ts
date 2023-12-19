@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 import { ValidatorService } from 'src/app/services/service-validator/validator.service';
@@ -19,22 +19,38 @@ export class DashboardUserNewComponent implements OnInit, OnDestroy {
   password: FormControl = new FormControl("", [this.serviceValidator.password()]);
   phone: FormControl = new FormControl("", [this.serviceValidator.require(), this.serviceValidator.phone()]);
   address: FormControl = new FormControl("", [this.serviceValidator.require()]);
-  roles: FormControl = new FormControl("", [this.serviceValidator.require()]);
+  role: FormControl = new FormControl("", [this.serviceValidator.require()]);
 
   nameBtnSubmit: string = "Create user";
   submit: boolean = false;
+  roles: Array<any> = [];
 
   url: string = `${environment.api.url}${environment.api.user.new}`;
   serviceHttpSub: Subscription = new Subscription();
+  resolveRolesSub: Subscription = new Subscription();
 
   constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private serviceValidator: ValidatorService,
-    private serviceHttp: CommonHttpService
+    public router: Router,
+    public route: ActivatedRoute,
+    public fb: FormBuilder,
+    public serviceValidator: ValidatorService,
+    public serviceHttp: CommonHttpService
   ) { }
 
   ngOnInit(): void {
+    this.resolveRolesSub = this.route.data.subscribe((data: any) => {
+      let { status, message, roles } = data.roles;
+      if(status) {
+        
+        this.roles = roles.map((role: any) => {
+          return {
+            id: role._id,
+            value: role.name
+          }
+        })
+      }
+    })
+
     this.createForm();
   }
 
@@ -45,7 +61,7 @@ export class DashboardUserNewComponent implements OnInit, OnDestroy {
       password: this.password,
       phone: this.phone,
       address: this.address,
-      roles: this.roles
+      role: this.role
     })
   }
 
@@ -72,5 +88,6 @@ export class DashboardUserNewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.serviceHttpSub.unsubscribe();
+    this.resolveRolesSub.unsubscribe();
   }
 }
