@@ -32,6 +32,38 @@
             </tbody>
         </table>
 
+        <!-- USER -->
+        <table class="table"  *ngIf="type == 'User' && tbody.length > 0">
+            <thead>
+                <tr>
+                    <th *ngFor="let head of thead">{{head}}</th>
+                    <th class="th-255">Chức năng</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let elm of tbody; index as i">
+                    <td>{{i}}</td>
+                    <td>{{elm.fullName}}</td>
+                    <td>{{elm.email}}</td>
+                    <td>
+                        <button
+                            (click)="onDeleteHandler(elm._id)"
+                            class="mr-2"
+                            mat-button
+                            mat-raised-button
+                            color="warn">Delete</button>
+
+                        <button
+                            (click)="onUpdateHandler(elm._id)"
+                            mat-button
+                            mat-raised-button
+                            color="primary">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
         <p  *ngIf="tbody.length <= 0" class="table-blank">Nội dung trống</p>
     </div>
 </div>

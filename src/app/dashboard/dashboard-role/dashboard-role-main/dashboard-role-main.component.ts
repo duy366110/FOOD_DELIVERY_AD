@@ -57,7 +57,6 @@ export class DashboardRoleMainComponent implements OnInit, OnDestroy {
   }
 
   onDeleteRole(event: any) {
-    console.log(event);
     let url: string = `${environment.api.url}${environment.api.role.delete}`;
     this.serviceDeleteRoleSub = this.http.post(url, {role: event}).subscribe((res: any) => {
       let {status, message} = res;

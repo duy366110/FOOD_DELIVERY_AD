@@ -10,7 +10,9 @@ export const environment = {
             amount: "role/amount"
         },
         user: {
-            new: "user/new"
+            root: "user",
+            new: "user/new",
+            amount: "user/amount",
         }
     }
 };

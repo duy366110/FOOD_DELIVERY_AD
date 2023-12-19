@@ -5,6 +5,7 @@ import { DashboardUserMainComponent } from './dashboard-user-main/dashboard-user
 import { DashboardUserNewComponent } from './dashboard-user-new/dashboard-user-new.component';
 import { DashboardUserEditComponent } from './dashboard-user-edit/dashboard-user-edit.component';
 import { ResolveAllRoleService } from 'src/app/services/resolve-all/resolve-all-role.service';
+import { ResolveUserAmountService } from 'src/app/services/resolve-amount/resolve-user-amount.service';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        resolve: {amount: ResolveUserAmountService},
         component: DashboardUserMainComponent
       },
       {

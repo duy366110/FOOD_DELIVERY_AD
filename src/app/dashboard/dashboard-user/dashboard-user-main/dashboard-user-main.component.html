@@ -1,1 +1,9 @@
-<p>dashboard-user-main works!</p>
+<div class="dashboard-user-main">
+    <app-common-table
+    (delete)="onDeleteRole($event)"
+    (update)="onUpdateRole($event)"
+    [thead]="thead"
+    [tbody]="tbody"
+    [type]="'User'"></app-common-table>
+    <app-common-pagination></app-common-pagination>
+</div>
