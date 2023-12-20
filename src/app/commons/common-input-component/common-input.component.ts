@@ -11,7 +11,7 @@ export class CommonInputComponent implements OnInit, OnChanges {
   @Input("formControl") formControl!: FormControl;
   @Input("label") label!: string;
   @Input("id") id!: string;
-  @Input("type") type!: string;
+  @Input("type") type: string | any;
   @Input("submit") submit: boolean = false;
   error: any = null;
 
