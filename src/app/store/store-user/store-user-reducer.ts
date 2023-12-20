@@ -14,13 +14,20 @@ const initialState = {
 export const userReducer = createReducer(
     initialState,
     on(signin, (state: any, action: any) => {
-        let {accessToken, address, email, id, phone, refreshToken, role} = action;
-        localStorage.setItem('user', JSON.stringify({accessToken, address, email, id, phone, refreshToken, role}));
         
+        let {user, accessToken, refreshToken} = action;
+
+        let {address, email, _id, phone, role} = user;
+        localStorage.setItem('user', JSON.stringify({accessToken, address, email, id: _id, phone, refreshToken, role}));
+
         return {
             ...state,
-            accessToken, address, email,
-            id, phone, refreshToken, role
+            id: _id,
+            address,
+            email,
+            phone,
+            accessToken,
+            refreshToken, role
         };
     }),
     on(reload, (state: any, action: any) => {
