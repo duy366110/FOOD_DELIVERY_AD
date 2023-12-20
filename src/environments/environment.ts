@@ -12,6 +12,7 @@ export const environment = {
         user: {
             root: "user",
             new: "user/new",
+            update: 'user/update',
             delete: "user/delete",
             amount: "user/amount",
         }
