@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-// import { signout } from "../../store/store-user/store-user-action";
-// import { CommonHttpService } from 'src/app/services/common-http.service';
+import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
+import { signout } from 'src/app/store/store-user/store-user-action';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -16,8 +17,9 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
   statusTabLeft: boolean = false;
 
   constructor(
+    private router: Router,
     private store: Store<{user: any}>,
-    // private serviceHttp: CommonHttpService
+    private serviceHttp: CommonHttpService
   ) { }
 
   ngOnInit(): void {
@@ -35,21 +37,25 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
   }
 
   onSignoutHandler() {
-    // let url: string = `${environment.api.url}${environment.api.access.signout}`;
-    // let payload = { id: this.user.id, email: this.user.email, accessToken: this.user.accessToken }
+    let url: string = environment.api.url;
+    url = url.replace(/admin\//g, environment.api.access.signout);
 
-    // this.serviceHttp.post(url, payload).subscribe(
-    //   (res: any) => {
-    //     let { status, message } = res;
-    //     if(status) {
-    //       this.store.dispatch(signout());
-    //       location.reload();
-    //     }
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // )
+    let payload = {
+      id: this.user.id,
+      accessToken: this.user.accessToken,
+      refreshToken: this.user.refreshToken
+    };
+
+    this.serviceHttp.post(url, payload).subscribe((res: any) => {
+        let { status, message } = res;
+
+        console.log(res);
+
+        if(status) {
+          this.store.dispatch(signout());
+          this.router.navigate(['/auth']);
+        }
+      })
   }
 
   onSignout() {

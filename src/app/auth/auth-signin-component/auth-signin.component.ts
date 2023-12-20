@@ -55,10 +55,10 @@ export class AuthSigninComponent implements OnInit, OnDestroy {
       this.serviceHttp.post(url, this.siginForm.value).subscribe(
         (res: any) => {
           const {status, message, metadata } = res;
-          
+
           if(status) {
             this.siginForm.reset();
-            this.store.dispatch(signin(metadata.user));
+            this.store.dispatch(signin(metadata));
             this.router.navigate(['/']);
   
           } else {

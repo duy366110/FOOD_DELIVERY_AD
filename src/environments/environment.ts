@@ -17,7 +17,8 @@ export const environment = {
             amount: "user/amount",
         },
         access: {
-            signin: "common/access/admin/signin"
+            signin: "common/access/admin/signin",
+            signout: "common/access/admin/signout",
         }
     }
 };

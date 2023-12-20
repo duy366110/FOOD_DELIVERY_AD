@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { CommonsRoutingModule } from './commons-routing.module';
@@ -42,6 +43,7 @@ import { CommonSelectComponent } from './common-select-component/common-select-c
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
+    MatIconModule,
     MatProgressSpinnerModule,
   ],
   exports: [
