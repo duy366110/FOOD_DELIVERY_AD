@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CommonButtonComponent {
 
   @Input("title") title!: String;
-  @Input('type') type: String = 'button';
+  @Input('type') type?: String = 'button';
   @Output("btnClick") btnClick = new EventEmitter();
 
   constructor() {}
