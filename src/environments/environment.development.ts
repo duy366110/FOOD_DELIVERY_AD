@@ -15,6 +15,9 @@ export const environment = {
             update: 'user/update',
             delete: "user/delete",
             amount: "user/amount",
+        },
+        access: {
+            signin: "common/access/admin/signin"
         }
     }
 };

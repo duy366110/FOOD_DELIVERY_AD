@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { loaderReducer } from './store/loader-reducer';
 import { paginationReducer } from './store/store-pagination/store-pagination-reducer';
+import { userReducer } from './store/store-user/store-user-reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { paginationReducer } from './store/store-pagination/store-pagination-red
     AppRoutingModule,
     StoreModule.forRoot({
       loader: loaderReducer,
-      pagination: paginationReducer
+      pagination: paginationReducer,
+      user: userReducer
     }),
     BrowserAnimationsModule,
     HttpClientModule

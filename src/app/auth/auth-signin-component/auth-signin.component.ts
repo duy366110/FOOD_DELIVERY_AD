@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 import { ValidatorService } from 'src/app/services/service-validator/validator.service';
+import { signin } from 'src/app/store/store-user/store-user-action';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,7 +13,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './auth-signin.component.html',
   styleUrls: ['./auth-signin.component.scss']
 })
-export class AuthSigninComponent implements OnInit, OnDestroy {
+export class AuthSigninComponent implements OnInit, OnDestroy {  
   siginForm: FormGroup = new FormGroup({});
   email: FormControl = new FormControl("", [this.serviceValidator.require(), this.serviceValidator.email()]);
   password: FormControl = new FormControl("", [this.serviceValidator.require(), this.serviceValidator.password()]);
@@ -46,23 +47,24 @@ export class AuthSigninComponent implements OnInit, OnDestroy {
     this.signinSubmit = true;
 
     if(this.siginForm.status === "VALID") {
-      // let url: string = `${environment.api.url}${environment.api.access.signin}`;
-      this.signinSubmit = false;
-      console.log(this.siginForm.value);
+      let url: string = environment.api.url;
+      url = url.replace(/admin\//g, environment.api.access.signin);
 
-      // this.serviceHttp.post(url, this.siginForm.value).subscribe(
-      //   (res: any) => {
-      //     const {status, message, user } = res;
-      //     if(status) {
-      //       localStorage.setItem("user", JSON.stringify(user));
-      //       this.siginForm.reset();
-      //       this.store.dispatch(signin(user));
-      //       this.router.navigate(['/']);
+      this.signinSubmit = false;
+
+      this.serviceHttp.post(url, this.siginForm.value).subscribe(
+        (res: any) => {
+          const {status, message, metadata } = res;
+          
+          if(status) {
+            this.siginForm.reset();
+            this.store.dispatch(signin(metadata.user));
+            this.router.navigate(['/']);
   
-      //     } else {
-      //       this.formMessage = message;
-      //     }
-      //   })
+          } else {
+            this.formMessage = message;
+          }
+        })
     }
   }
 
