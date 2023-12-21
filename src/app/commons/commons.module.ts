@@ -23,6 +23,7 @@ import { CommonPaginationComponent } from './common-pagination-component/common-
 import { CommonTableComponent } from './common-table-component/common-table.component';
 import { CommonSelectComponent } from './common-select-component/common-select-component.component';
 import { CommonTextareaComponent } from './common-textarea-component/common-textarea.component';
+import { CommonInputFileComponent } from './common-input-file-component/common-input-file.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { CommonTextareaComponent } from './common-textarea-component/common-text
     CommonTableComponent,
     CommonSelectComponent,
     CommonTextareaComponent,
+    CommonInputFileComponent,
   ],
   imports: [
     CommonModule,
@@ -65,6 +67,7 @@ import { CommonTextareaComponent } from './common-textarea-component/common-text
     CommonTableComponent,
     CommonSelectComponent,
     CommonTextareaComponent,
+    CommonInputFileComponent,
   ]
 })
 export class CommonsModule { }

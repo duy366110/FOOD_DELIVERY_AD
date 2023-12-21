@@ -31,7 +31,10 @@
             </div>
     
             <div class="col-6">
-                <input #myInput type="file" multiple="multiple"/>
+                <!-- <input #myInput type="file" multiple="multiple"/> -->
+
+                <app-common-input-file
+                    [formControl]="thumb"></app-common-input-file>
             </div>
     
             <div class="col-12">
