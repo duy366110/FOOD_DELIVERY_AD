@@ -12,7 +12,7 @@
                         <li *ngIf="!user.id">
                             <a [routerLink]="['/auth']">
                                 <mat-icon aria-hidden="false" fontIcon="login"></mat-icon>
-                                <span>Đăng nhập</span>
+                                <span>SignIn</span>
                             </a>
                         </li>
                         <li *ngIf="user.id">
@@ -21,7 +21,7 @@
                         <li *ngIf="user.id">
                             <a (click)="onSignoutHandler()">
                                 <mat-icon aria-hidden="false" fontIcon="logout"></mat-icon>
-                                <span>Đăng xuất</span>
+                                <span>SignOut</span>
                             </a>
                         </li>
                     </ul>

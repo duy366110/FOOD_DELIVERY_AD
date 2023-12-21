@@ -18,3 +18,8 @@ body {
 .message-input {
     color: var(--danger-color)!important;
 }
+
+/* TEXT-AREA */
+mat-form-field {
+    width: 100%;
+}

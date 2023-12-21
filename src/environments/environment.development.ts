@@ -19,6 +19,9 @@ export const environment = {
         access: {
             signin: "common/access/admin/signin",
             signout: "common/access/admin/signout",
+        },
+        category: {
+            new: "category/new"
         }
     }
 };
