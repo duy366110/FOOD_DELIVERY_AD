@@ -1,0 +1,43 @@
+<div class="dashboard-category-new-component">
+    <form [formGroup]="categoryForm" (submit)="onSubmitHandler($event)">
+        <div class="row">
+            <div class="col-6">
+                <app-common-input
+                    ngDefaultControl
+                    [formControl]="title"
+                    [label]="'Title'"
+                    [id]="'category-title'"
+                    [submit]="submit"
+                    [type]="'text'"></app-common-input>
+            </div>
+    
+            <div class="col-6">
+                <app-common-input
+                    ngDefaultControl
+                    [formControl]="titleSub"
+                    [label]="'Sub title'"
+                    [id]="'category-sub-title'"
+                    [submit]="submit"
+                    [type]="'text'"></app-common-input>
+            </div>
+    
+            <div class="col-6">
+                <app-common-textarea
+                    ngDefaultControl
+                    [formControl]="desc"
+                    [label]="'Description'"
+                    [id]="'category-desc'"
+                    [submit]="submit"></app-common-textarea>
+            </div>
+    
+            <div class="col-6">
+                <input #myInput type="file" multiple="multiple"/>
+            </div>
+    
+            <div class="col-12">
+                <app-common-button [type]="'submit'" [title]="nameBtnSubmit"></app-common-button>
+            </div>
+        </div>
+    </form>
+    
+</div>

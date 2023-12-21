@@ -1,0 +1,11 @@
+<div class="common-texarea-component">
+    <mat-form-field>
+        <mat-label>{{label}}</mat-label>
+        <textarea
+            (blur)="onBlurHandler()"
+            [formControl]="formControl"
+            MatFormFieldControl
+            [id]="id"
+            matInput></textarea>
+    </mat-form-field>
+</div>

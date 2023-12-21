@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { CommonsRoutingModule } from './commons-routing.module';
@@ -20,6 +22,7 @@ import { CommonMessageComponent } from './common-message-component/common-messag
 import { CommonPaginationComponent } from './common-pagination-component/common-pagination.component';
 import { CommonTableComponent } from './common-table-component/common-table.component';
 import { CommonSelectComponent } from './common-select-component/common-select-component.component';
+import { CommonTextareaComponent } from './common-textarea-component/common-textarea.component';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { CommonSelectComponent } from './common-select-component/common-select-c
     CommonMessageComponent,
     CommonPaginationComponent,
     CommonTableComponent,
-    CommonSelectComponent
+    CommonSelectComponent,
+    CommonTextareaComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +48,8 @@ import { CommonSelectComponent } from './common-select-component/common-select-c
     MatButtonModule,
     MatSelectModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatProgressSpinnerModule,
   ],
   exports: [
@@ -57,7 +63,8 @@ import { CommonSelectComponent } from './common-select-component/common-select-c
     CommonMessageComponent,
     CommonPaginationComponent,
     CommonTableComponent,
-    CommonSelectComponent
+    CommonSelectComponent,
+    CommonTextareaComponent,
   ]
 })
 export class CommonsModule { }
