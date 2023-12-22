@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ServiceHttpCustomService } from 'src/app/services/service-http-custom/service-http-custom.service';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 import { environment } from 'src/environments/environment';
 
@@ -27,7 +28,8 @@ export class DashboardCategoryNewComponent implements OnInit, OnDestroy {
   constructor(
     public router: Router,
     public fb: FormBuilder,
-    public serviceHttp: CommonHttpService
+    public serviceHttp: CommonHttpService,
+    public serviceHttpCustom: ServiceHttpCustomService
   ) {}
 
   ngOnInit(): void {
@@ -58,19 +60,14 @@ export class DashboardCategoryNewComponent implements OnInit, OnDestroy {
         CategoryForm.append(key, this.categoryForm.value[key]);
       })
 
-      let res = await fetch(this.url, {
-        method: 'POST',
-        body: CategoryForm
+      this.serviceHttpCustom.post(this.url, CategoryForm, (information: any) => {
+        let { status, message} = information;
+
+        if(status) {
+          this.categoryForm.reset();
+          this.router.navigate(['/category']);
+        }
       })
-
-      let data = await res.json();
-      let { status, message} = data;
-
-      if(status) {
-        this.categoryForm.reset();
-        this.router.navigate(['/category']);
-      }
-
     }
   }
 

@@ -9,6 +9,7 @@ import { DashboardCategoryEditComponent } from './dashboard-category-edit/dashbo
 import { CommonsModule } from 'src/app/commons/commons.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
+import { ServiceHttpCustomService } from 'src/app/services/service-http-custom/service-http-custom.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CommonHttpService } from 'src/app/services/service-http/common-http.ser
     ReactiveFormsModule
   ],
   providers: [
-    CommonHttpService
+    CommonHttpService,
+    ServiceHttpCustomService
   ]
 })
 export class DashboardCategoryModule { }

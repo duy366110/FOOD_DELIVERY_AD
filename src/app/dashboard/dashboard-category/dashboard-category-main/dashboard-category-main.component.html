@@ -1,1 +1,11 @@
-<p>dashboard-category-main works!</p>
+<div class="dashboard-category-main-component">
+    <div class="dashboard-role-main">
+        <app-common-table
+        (delete)="onDeleteCategory($event)"
+        (update)="onUpdateCategory($event)"
+        [thead]="thead"
+        [tbody]="tbody"
+        [type]="'Category'"></app-common-table>
+        <app-common-pagination></app-common-pagination>
+    </div>
+</div>

@@ -8,6 +8,10 @@ import {
     loadInitUserPagination,
     updateCurrentUserPage,
 
+    // CATEGORY
+    loadInitCategoryPagination,
+    updateCurrentCategoryPage,
+
     updateStatusPage
 } from "./store-pagination-action";
 
@@ -26,6 +30,13 @@ const initialState = {
         currentPage: 0,
         status: false
     },
+    category: {
+        totalAmount: 0,
+        totalItemInPage: 1,
+        totalPage: 0,
+        currentPage: 0,
+        status: false
+    },
 }
 
 export const paginationReducer = createReducer(
@@ -33,11 +44,32 @@ export const paginationReducer = createReducer(
     // COMMON
     on(updateStatusPage, (state, action) => {
         let { kind } = action;
+
         if(kind === "role") {
             return {
                 ...state,
                 role: {
                     ...state.role,
+                    status: false
+                }
+            }
+        }
+
+        if(kind === "user") {
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    status: false
+                }
+            }
+        }
+
+        if(kind === "category") {
+            return {
+                ...state,
+                category: {
+                    ...state.category,
                     status: false
                 }
             }
@@ -94,6 +126,34 @@ export const paginationReducer = createReducer(
                 ...state,
                 user: {
                     ...state.user,
+                    currentPage: page
+                }
+            }
+        }
+
+        return state;
+    }),
+
+    // CATEGORY
+    on(loadInitCategoryPagination, (state, action) => {
+        let { amount } = action;
+        return {
+            ...state,
+            category: {
+                ...state.category,
+                totalAmount: amount,
+                totalPage: Math.ceil(amount / state.category.totalItemInPage),
+                status: true
+            }
+        };
+    }),
+    on(updateCurrentCategoryPage, (state, action) => {
+        let { page, section } = action;
+        if(section === "category") {
+            return {
+                ...state,
+                category: {
+                    ...state.category,
                     currentPage: page
                 }
             }

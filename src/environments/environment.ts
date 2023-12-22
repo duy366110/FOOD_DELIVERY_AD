@@ -21,7 +21,10 @@ export const environment = {
             signout: "common/access/admin/signout",
         },
         category: {
-            new: "category/new"
+            root: "category",
+            new: "category/new",
+            delete: "category/delete",
+            amount: "category/amount",
         }
     }
 };
