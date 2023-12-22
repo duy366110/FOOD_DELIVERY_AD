@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
+  updateCurrentCategoryPage,
   updateCurrentRolePage,
   updateCurrentUserPage
 } from 'src/app/store/store-pagination/store-pagination-action';
@@ -45,6 +46,10 @@ export class CommonPaginationComponent implements OnInit {
     switch(this.kind) {
       case 'user':
         this.store.dispatch(updateCurrentUserPage({page, section: this.section}));
+        break
+
+      case 'category':
+        this.store.dispatch(updateCurrentCategoryPage({page, section: this.section}));
         break
 
       case "role":

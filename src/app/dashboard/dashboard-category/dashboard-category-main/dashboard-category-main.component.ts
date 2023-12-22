@@ -18,7 +18,7 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
   serviceUserSub: Subscription = new Subscription();
   serviceDeleteUserSub: Subscription = new Subscription();
 
-  thead: Array<string> = ['STT', "Name"];
+  thead: Array<string> = ['STT', "Name", "Thumbnail"];
   tbody: Array<any> = [];
 
   constructor(
@@ -47,7 +47,6 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
         this.serviceUserSub = this.http.get(url).subscribe((res: any) => {
           let { status, message, categories } = res;
           if(status) {
-            console.log(categories);
             this.tbody = categories;
           }
         })
@@ -56,7 +55,8 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
     })
   }
 
-  onDeleteRole(event: any) {
+  onDeleteCategory(event: any) {
+    console.log(event);
     // let url: string = `${environment.api.url}${environment.api.user.delete}`;
     // this.serviceDeleteUserSub = this.http.post(url, {user: event}).subscribe((res: any) => {
     //   let {status, message} = res;
@@ -67,7 +67,7 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
     // })
   }
 
-  onUpdateRole(event: any) {
+  onUpdateCategory(event: any) {
     // this.router.navigate(['/user/edit', event]);
   }
 
