@@ -1,12 +1,12 @@
-<div class="dashboard-category-new-component">
-    <form [formGroup]="categoryForm" (submit)="onSubmitHandler($event)">
+<div class="dashboard-dish-new-component">
+    <form [formGroup]="dishForm" (submit)="onSubmitHandler($event)">
         <div class="row">
             <div class="col-6">
                 <app-common-input
                     ngDefaultControl
                     [formControl]="title"
                     [label]="'Title'"
-                    [id]="'category-title'"
+                    [id]="'dish-title'"
                     [submit]="submit"
                     [type]="'text'"></app-common-input>
             </div>
@@ -16,22 +16,40 @@
                     ngDefaultControl
                     [formControl]="titleSub"
                     [label]="'Sub title'"
-                    [id]="'category-sub-title'"
+                    [id]="'dish-sub-title'"
                     [submit]="submit"
                     [type]="'text'"></app-common-input>
             </div>
-    
+
             <div class="col-6">
-                <app-common-textarea
+                <app-common-input
                     ngDefaultControl
-                    [formControl]="desc"
-                    [label]="'Description'"
-                    [id]="'category-desc'"
-                    [submit]="submit"></app-common-textarea>
+                    [formControl]="price"
+                    [label]="'Price dish'"
+                    [id]="'dish-price'"
+                    [submit]="submit"
+                    [type]="'number'"></app-common-input>
             </div>
     
             <div class="col-6">
                 <app-common-input-file [formControl]="thumb"></app-common-input-file>
+            </div>
+
+            <div class="col-6">
+                <app-common-select-component
+                [formControl]="category"
+                [label]="'Category dish'"
+                [options]="categories"
+                ></app-common-select-component>
+            </div>
+
+            <div class="col-12">
+                <app-common-textarea
+                    ngDefaultControl
+                    [formControl]="desc"
+                    [label]="'Description'"
+                    [id]="'dish-desc'"
+                    [submit]="submit"></app-common-textarea>
             </div>
     
             <div class="col-12">

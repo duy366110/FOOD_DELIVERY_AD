@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ServiceHttpCustomService } from 'src/app/services/service-http-custom/service-http-custom.service';
+import { CommonHttpService } from 'src/app/services/service-http/common-http.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -44,11 +45,9 @@ export class DashboardCategoryNewComponent implements OnInit, OnDestroy {
 
   async onSubmitHandler(event: any) {
     event.preventDefault();
-    this.submit = true;
+    
 
     if(this.categoryForm.status === "VALID") {
-      this.submit = false;
-      
       let CategoryForm = new FormData();
       if(this.thumb.hasOwnProperty('files') && this.thumb.files.length) {
         for(let file of this.thumb.files) {
@@ -60,7 +59,7 @@ export class DashboardCategoryNewComponent implements OnInit, OnDestroy {
         CategoryForm.append(key, this.categoryForm.value[key]);
       })
 
-      await this.serviceHttpCustom.post(this.url, CategoryForm, (information: any) => {
+      this.serviceHttpCustom.post(this.url, CategoryForm, (information: any) => {
         let { status, message} = information;
 
         if(status) {
@@ -71,8 +70,6 @@ export class DashboardCategoryNewComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-
-  }
+  ngOnDestroy(): void {}
 
 }

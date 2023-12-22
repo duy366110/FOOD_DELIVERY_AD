@@ -25,7 +25,16 @@ export const environment = {
             new: "category/new",
             update: "category/update",
             delete: "category/delete",
+            all: "category/all",
             amount: "category/amount",
+        },
+        dish: {
+            root: "dish",
+            new: "dish/new",
+            update: "dish/update",
+            delete: "dish/delete",
+            all: "dish/all",
+            amount: "dish/amount",
         }
     }
 };
