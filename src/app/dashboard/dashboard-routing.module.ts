@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: "category",
         loadChildren: (() => import("../dashboard/dashboard-category/dashboard-category.module").then((m) => m.DashboardCategoryModule)),
+      },
+      {
+        path: "dish",
+        loadChildren: (() => import("../dashboard/dashboard-dish/dashboard-dish.module").then((m) => m.DashboardDishModule))
       }
     ]
   }
