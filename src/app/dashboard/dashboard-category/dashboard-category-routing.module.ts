@@ -5,6 +5,7 @@ import { DashboardCategoryMainComponent } from './dashboard-category-main/dashbo
 import { DashboardCategoryNewComponent } from './dashboard-category-new/dashboard-category-new.component';
 import { DashboardCategoryEditComponent } from './dashboard-category-edit/dashboard-category-edit.component';
 import { ResolveCategoryAmountService } from 'src/app/services/resolve-amount/resolve-category-amount.service';
+import { ResolveIdCategoryService } from 'src/app/services/resolve-id/resolve-id-category.service';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
       },
       {
         path: "edit/:id",
+        resolve: {category: ResolveIdCategoryService},
         component: DashboardCategoryEditComponent
       }
     ]

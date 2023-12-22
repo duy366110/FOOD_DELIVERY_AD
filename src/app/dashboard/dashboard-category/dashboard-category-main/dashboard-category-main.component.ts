@@ -68,14 +68,13 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
   }
 
   onUpdateCategory(event: any) {
-    // this.router.navigate(['/user/edit', event]);
+    this.router.navigate(['/category/edit', event]);
   }
 
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
     this.storeSub.unsubscribe();
-    // this.serviceDeleteUserSub.unsubscribe();
-    // this.store.dispatch(updateStatusPage({kind: "user"}));
+    this.store.dispatch(updateStatusPage({kind: "category"}));
   }
   
 }
