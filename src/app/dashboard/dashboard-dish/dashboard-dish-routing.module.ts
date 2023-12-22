@@ -5,6 +5,7 @@ import { DashboardDishMainComponent } from './dashboard-dish-main/dashboard-dish
 import { DashboardDishNewComponent } from './dashboard-dish-new/dashboard-dish-new.component';
 import { DashboardDishEditComponent } from './dashboard-dish-edit/dashboard-dish-edit.component';
 import { ResolveAllCategoryService } from 'src/app/services/resolve-all/resolve-all-category.service';
+import { ResolveDishAmountService } from 'src/app/services/resolve-amount/resolve-dish-amount.service';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        resolve: {amount: ResolveDishAmountService},
         component: DashboardDishMainComponent
       },
       {

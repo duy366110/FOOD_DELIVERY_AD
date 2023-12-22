@@ -12,6 +12,9 @@ import {
     loadInitCategoryPagination,
     updateCurrentCategoryPage,
 
+    loadInitDishPagination,
+    updateCurrentDishPage,
+
     updateStatusPage
 } from "./store-pagination-action";
 
@@ -31,6 +34,13 @@ const initialState = {
         status: false
     },
     category: {
+        totalAmount: 0,
+        totalItemInPage: 15,
+        totalPage: 0,
+        currentPage: 0,
+        status: false
+    },
+    dish: {
         totalAmount: 0,
         totalItemInPage: 1,
         totalPage: 0,
@@ -70,6 +80,16 @@ export const paginationReducer = createReducer(
                 ...state,
                 category: {
                     ...state.category,
+                    status: false
+                }
+            }
+        }
+
+        if(kind === "dish") {
+            return {
+                ...state,
+                dish: {
+                    ...state.dish,
                     status: false
                 }
             }
@@ -161,4 +181,34 @@ export const paginationReducer = createReducer(
 
         return state;
     }),
+
+
+    // DISH
+    on(loadInitDishPagination, (state, action) => {
+        let { amount } = action;
+        return {
+            ...state,
+            dish: {
+                ...state.dish,
+                totalAmount: amount,
+                totalPage: Math.ceil(amount / state.dish.totalItemInPage),
+                status: true
+            }
+        };
+    }),
+    on(updateCurrentDishPage, (state, action) => {
+        let { page, section } = action;
+        if(section === "dish") {
+            return {
+                ...state,
+                dish: {
+                    ...state.dish,
+                    currentPage: page
+                }
+            }
+        }
+
+        return state;
+    }),
+
 )
