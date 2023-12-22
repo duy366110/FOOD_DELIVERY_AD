@@ -23,6 +23,7 @@ export const environment = {
         category: {
             root: "category",
             new: "category/new",
+            delete: "category/delete",
             amount: "category/amount",
         }
     }

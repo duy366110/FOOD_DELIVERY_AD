@@ -57,14 +57,14 @@ export class DashboardCategoryMainComponent implements OnInit, OnDestroy {
 
   onDeleteCategory(event: any) {
     console.log(event);
-    // let url: string = `${environment.api.url}${environment.api.user.delete}`;
-    // this.serviceDeleteUserSub = this.http.post(url, {user: event}).subscribe((res: any) => {
-    //   let {status, message} = res;
+    let url: string = `${environment.api.url}${environment.api.category.delete}`;
+    this.serviceDeleteUserSub = this.http.post(url, {category: event}).subscribe((res: any) => {
+      let {status, message} = res;
       
-    //   if(status) {
-    //     window.location.reload();
-    //   }
-    // })
+      if(status) {
+        window.location.reload();
+      }
+    })
   }
 
   onUpdateCategory(event: any) {
