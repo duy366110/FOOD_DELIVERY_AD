@@ -6,6 +6,7 @@ import { DashboardDishNewComponent } from './dashboard-dish-new/dashboard-dish-n
 import { DashboardDishEditComponent } from './dashboard-dish-edit/dashboard-dish-edit.component';
 import { ResolveAllCategoryService } from 'src/app/services/resolve-all/resolve-all-category.service';
 import { ResolveDishAmountService } from 'src/app/services/resolve-amount/resolve-dish-amount.service';
+import { ResolveIdDishService } from 'src/app/services/resolve-id/resolve-id-dish.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       },
       {
         path: "edit/:id",
+        resolve: {
+          dish: ResolveIdDishService,
+          categories: ResolveAllCategoryService
+        },
         component: DashboardDishEditComponent
       }
     ]

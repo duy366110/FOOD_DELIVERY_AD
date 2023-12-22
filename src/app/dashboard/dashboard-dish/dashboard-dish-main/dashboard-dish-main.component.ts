@@ -16,7 +16,7 @@ export class DashboardDishMainComponent implements OnInit, OnDestroy {
   dataSub: Subscription = new Subscription();
   storeSub: Subscription = new Subscription();
   serviceDishSub: Subscription = new Subscription();
-  serviceDeleteUserSub: Subscription = new Subscription();
+  serviceDeleteDishSub: Subscription = new Subscription();
 
   thead: Array<string> = ['STT', "Title", "Thumbnail"];
   tbody: Array<any> = [];
@@ -57,26 +57,25 @@ export class DashboardDishMainComponent implements OnInit, OnDestroy {
 
   onDeleteRole(event: any) {
     console.log(event);
-    // let url: string = `${environment.api.url}${environment.api.user.delete}`;
-    // this.serviceDeleteUserSub = this.http.post(url, {user: event}).subscribe((res: any) => {
-    //   let {status, message} = res;
+    let url: string = `${environment.api.url}${environment.api.dish.delete}`;
+    this.serviceDeleteDishSub = this.http.post(url, {dish: event}).subscribe((res: any) => {
+      let {status, message} = res;
       
-    //   if(status) {
-    //     window.location.reload();
-    //   }
-    // })
+      if(status) {
+        window.location.reload();
+      }
+    })
   }
 
   onUpdateRole(event: any) {
-    console.log(event);
-    // this.router.navigate(['/user/edit', event]);
+    this.router.navigate(['/dish/edit', event]);
   }
 
   ngOnDestroy(): void {
     this.dataSub.unsubscribe();
     this.storeSub.unsubscribe();
     this.serviceDishSub.unsubscribe();
-    // this.serviceDeleteUserSub.unsubscribe();
+    this.serviceDeleteDishSub.unsubscribe();
     this.store.dispatch(updateCurrentDishPage({kind: "dish"}));
   }
 }
