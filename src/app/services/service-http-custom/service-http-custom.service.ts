@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { toggleLoader } from 'src/app/store/loader-action';
+import { open, close } from "src/app/store/store-message/store-message-action";
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,16 @@ import { toggleLoader } from 'src/app/store/loader-action';
 export class ServiceHttpCustomService {
 
   constructor(
-    private store: Store<{loader: any}>
+    private store: Store<{loader: any, message: any}>
   ) { }
+
+  setMessage(message: string) {
+    this.store.dispatch(open({message}));
+
+    setTimeout(() => {
+      this.store.dispatch(close());
+    }, 2500)
+  }
 
   async post(url: string, payload: any, cb: any) {
     try {
@@ -23,8 +32,9 @@ export class ServiceHttpCustomService {
       this.store.dispatch(toggleLoader());
       cb(await res.json());
 
-    } catch (error) {
+    } catch (error: any) {
       this.store.dispatch(toggleLoader());
+      this.setMessage(error.message);
       throw error;
     }
   }
