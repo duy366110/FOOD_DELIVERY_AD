@@ -18,12 +18,12 @@ import { CommonBreadcrumbComponent } from './common-breadcrumb-component/common-
 import { CommonButtonComponent } from './common-button-component/common-button.component';
 import { CommonFooterComponent } from './common-footer-component/common-footer.component';
 import { CommonLoaderComponent } from './common-loader-component/common-loader.component';
-import { CommonMessageComponent } from './common-message-component/common-message.component';
 import { CommonPaginationComponent } from './common-pagination-component/common-pagination.component';
 import { CommonTableComponent } from './common-table-component/common-table.component';
 import { CommonSelectComponent } from './common-select-component/common-select-component.component';
 import { CommonTextareaComponent } from './common-textarea-component/common-textarea.component';
 import { CommonInputFileComponent } from './common-input-file-component/common-input-file.component';
+import { CommonMessageComponent } from './common-messagecomponent/common-message.component';
 
 
 @NgModule({

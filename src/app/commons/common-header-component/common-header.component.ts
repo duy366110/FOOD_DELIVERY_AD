@@ -48,9 +48,7 @@ export class CommonHeaderComponent implements OnInit, OnDestroy {
 
     this.serviceHttp.post(url, payload).subscribe((res: any) => {
         let { status, message } = res;
-
-        console.log(res);
-
+        
         if(status) {
           this.store.dispatch(signout());
           this.router.navigate(['/auth']);

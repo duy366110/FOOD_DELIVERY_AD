@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { loaderReducer } from './store/loader-reducer';
 import { paginationReducer } from './store/store-pagination/store-pagination-reducer';
 import { userReducer } from './store/store-user/store-user-reducer';
+import { messageReducer } from './store/store-message/store-message-reducer';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { userReducer } from './store/store-user/store-user-reducer';
     StoreModule.forRoot({
       loader: loaderReducer,
       pagination: paginationReducer,
-      user: userReducer
+      user: userReducer,
+      message: messageReducer
     }),
     BrowserAnimationsModule,
     HttpClientModule

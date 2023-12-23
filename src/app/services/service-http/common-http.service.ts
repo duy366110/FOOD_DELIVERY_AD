@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { toggleLoader } from 'src/app/store/loader-action';
+import { open, close } from "src/app/store/store-message/store-message-action";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,16 @@ export class CommonHttpService {
 
   constructor(
     private http: HttpClient,
-    private store: Store<{loader: any}>
+    private store: Store<{loader: any, message: any}>
   ) { }
+
+  setMessage(message: string) {
+    this.store.dispatch(open({message}));
+
+    setTimeout(() => {
+      this.store.dispatch(close());
+    }, 2500)
+  }
 
   get(url: string = ""): Observable<any> {
     this.store.dispatch(toggleLoader());
@@ -22,10 +31,17 @@ export class CommonHttpService {
           .pipe(
             map((response: any) => {
               this.store.dispatch(toggleLoader());
+
+              let { status, message }: any = response;
+              if(!status) {
+                this.setMessage(message);
+              }
+
               return response;
             }),
             catchError((errorRes: any) => {
               this.store.dispatch(toggleLoader());
+              this.setMessage(errorRes.message);
               return throwError(() => errorRes);
             })
           )
@@ -39,10 +55,17 @@ export class CommonHttpService {
           .pipe(
             map((response: any) => {
               this.store.dispatch(toggleLoader());
+
+              let { status, message }: any = response;
+              if(!status) {
+                this.setMessage(message);
+              }
+
               return response;
             }),
             catchError((errorRes: any) => {
               this.store.dispatch(toggleLoader());
+              this.setMessage(errorRes.message);
               return throwError(() => errorRes);
             })
           )
@@ -56,10 +79,17 @@ export class CommonHttpService {
           .pipe(
             map((response: any) => {
               this.store.dispatch(toggleLoader());
+
+              let { status, message }: any = response;
+              if(!status) {
+                this.setMessage(message);
+              }
+
               return response;
             }),
             catchError((errorRes: any) => {
               this.store.dispatch(toggleLoader());
+              this.setMessage(errorRes.message);
               return throwError(() => errorRes);
             })
           )
@@ -73,10 +103,17 @@ export class CommonHttpService {
           .pipe(
             map((response: any) => {
               this.store.dispatch(toggleLoader());
+
+              let { status, message }: any = response;
+              if(!status) {
+                this.setMessage(message);
+              }
+
               return response;
             }),
             catchError((errorRes: any) => {
               this.store.dispatch(toggleLoader());
+              this.setMessage(errorRes.message);
               return throwError(() => errorRes);
             })
           )
