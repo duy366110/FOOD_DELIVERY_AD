@@ -1,1 +1,51 @@
-<p>dashboard-main works!</p>
+<div class="dashboard-main-component">
+    <div class="row">
+        <div class="col-4">
+            <div class="main-card bg-first">
+                <div class="main-card-infor">
+                    <mat-icon aria-hidden="false" fontIcon="engineering"></mat-icon>
+                    <p class="main-card-infor-title">Roles</p>
+                </div>
+                <div class="main-card-amount">
+                    <span>{{amountRole}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="main-card bg-first">
+                <div class="main-card-infor">
+                    <mat-icon aria-hidden="false" fontIcon="group"></mat-icon>
+                    <p class="main-card-infor-title">Users</p>
+                </div>
+                <div class="main-card-amount">
+                    <span>{{amountUser}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="main-card bg-first">
+                <div class="main-card-infor">
+                    <mat-icon aria-hidden="false" fontIcon="apps"></mat-icon>
+                    <p class="main-card-infor-title">Categories</p>
+                </div>
+                <div class="main-card-amount">
+                    <span>{{amountCategory}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="main-card bg-first">
+                <div class="main-card-infor">
+                    <mat-icon aria-hidden="false" fontIcon="ramen_dining"></mat-icon>
+                    <p class="main-card-infor-title">Dishs</p>
+                </div>
+                <div class="main-card-amount">
+                    <span>{{amountDish}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

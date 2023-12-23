@@ -8,7 +8,7 @@
         position: absolute;
         width: 100%;
         .sidebar-navigator {
-            background-color: #f9f9f9;
+            background-color: #5a809d;
             list-style-type: none;
             height: 100%;
             margin: 0px;
@@ -19,10 +19,10 @@
                     border-bottom: 1px solid #e5e5e5;
                 }
                 a {
-                    color: var(--first-color);
+                    color: #ffffff;
                     display: flex;
-                    font-size: 15px;
-                    font-weight: 600;
+                    font-size: 1.6rem;
+                    letter-spacing: .3px;
                     letter-spacing: .3px;
                     padding: 10px 15px;
                     width: 100%;

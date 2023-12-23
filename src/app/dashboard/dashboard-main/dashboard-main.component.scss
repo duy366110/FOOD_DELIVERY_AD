@@ -1,0 +1,38 @@
+.dashboard-main-component {
+    width: 100%;
+
+    .main-card {
+        border-radius: 5px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+
+        &.bg-first {
+            background: #4ECDC4;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #6586a9, #4ECDC4);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #6586a9, #4ECDC4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        &.bg-second {
+            background: #304352;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #d7d2cc, #304352);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        .main-card-infor {
+            .material-icons {
+                font-size: 30px;
+                height: 30px;
+                width: 30px;
+            }
+            .main-card-infor-title {
+                font-size: 1.5rem;
+                letter-spacing: .3px;
+                margin-bottom: 0px;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
