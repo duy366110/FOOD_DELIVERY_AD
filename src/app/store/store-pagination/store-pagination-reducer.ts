@@ -42,7 +42,7 @@ const initialState = {
     },
     dish: {
         totalAmount: 0,
-        totalItemInPage: 30,
+        totalItemInPage: 15,
         totalPage: 0,
         currentPage: 0,
         status: false

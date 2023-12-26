@@ -1,10 +1,12 @@
 .common-sidebar-component {
     min-height: 250px;
+    height: 100%;
     position: relative;
     width: 100%;
     .sidebar-wrapper {
         border-right: 3px solid var(--first-color);
-        height: 100vh;
+        min-height: 100vh;
+        height: 100%;
         position: absolute;
         width: 100%;
         .sidebar-navigator {
